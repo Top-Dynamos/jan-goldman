@@ -13,10 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jangoldman.com/contact.htm">
 <script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <style>
 .skip{position:absolute;left:-9999px;top:0;background:var(--brass);color:#14202B;padding:12px 18px;z-index:99;font-weight:700}
 .skip:focus{left:8px;top:8px}
+.areas-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:1100px){.areas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.areas-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -45,12 +51,12 @@
 <div class="phead">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="chev"></span><span>Contact</span></nav>
-    <h1 class="rv">Contact the office</h1>
-    <p class="lede rv rv-d1">Have the ticket or the accusatory instrument in front of you. The charge, the date and the court are usually enough to say where you stand.</p>
+    <h1 class="rv">One call, and you will know where you stand.</h1>
+    <p class="lede rv rv-d1">Have the ticket or the accusatory instrument in front of you. The charge, the date and the court are usually all it takes.</p>
     
   </div>
 </div>
-<section>
+<section class="edge-top">
   <div class="wrap">
     <div class="infogrid">
       <div class="cell rv">
@@ -58,12 +64,12 @@
         <p class="t">Office</p>
         <p class="d">100 Ring Road West, Suite 209<br>At the Roosevelt Field Mall<br>Garden City, NY 11530</p>
       </div>
-      <div class="cell rv">
+      <div class="cell rv rv-d1">
         <span class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.4 5.8l2.8 5.1-2.6 2.2a14.6 14.6 0 0 0 7.3 7.3l2.2-2.6 5.1 2.8v4.1a2.4 2.4 0 0 1-2.7 2.4C13.9 26.2 5.8 18.1 4.9 8.5A2.4 2.4 0 0 1 7.3 5.8z"/></svg></span>
         <p class="t">Telephone</p>
         <p class="d"><a href="tel:+15168738587">(516) 873-8587</a><br><span style="font-size:14.5px;color:var(--muted)">Dial 873-TKTS</span></p>
       </div>
-      <div class="cell rv">
+      <div class="cell rv rv-d2">
         <span class="ico"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18.5 4H9a2.5 2.5 0 0 0-2.5 2.5v19A2.5 2.5 0 0 0 9 28h14a2.5 2.5 0 0 0 2.5-2.5V11z"/><path d="M18.5 4v7h7M11 17h10M11 21.5h7"/></svg></span>
         <p class="t">Fax</p>
         <p class="d">(516) 873-8535</p>
@@ -78,11 +84,11 @@
       <div class="prose">
         <div class="block rv">
           <h2>Finding us</h2>
-          <p>The office is on Ring Road West, at the Roosevelt Field Mall in Garden City, a few minutes from the Nassau County courts and straight off the Meadowbrook State Parkway. There is parking at the mall.</p>
+          <p>The office sits on Ring Road West, at the Roosevelt Field Mall in Garden City, a few minutes from the Nassau County courts and straight off the Meadowbrook State Parkway. There is parking at the mall.</p>
         </div>
         <div class="block rv">
-          <h2>What to have ready</h2>
-          <p>A first call goes much further when the paperwork is in front of you. Most of what matters is printed on the ticket itself.</p>
+          <h2>Have this in front of you</h2>
+          <p>A first call goes much further when the paperwork is to hand. Nearly everything that matters is printed on the ticket itself.</p>
           <ul class="ticks">
             <li>The charge, and the section number printed beside it</li>
             <li>The date of the violation, which is the date the points attach to</li>
@@ -107,8 +113,8 @@
       <p>A call is quicker than a form, and you will know on that call whether this office can help you.</p>
     </div>
         <div class="railbox rv">
-          <h3>Check Your Points First</h3>
-          <p>The code on your ticket decides the points. The current New York values, including the ones raised in February 2026, are set out in full.</p>
+          <h3>Check The Points First</h3>
+          <p>The code on your ticket decides the points. The current New York values, including everything raised in February 2026, are set out in full.</p>
           <p style="margin-top:14px"><a class="btn btn-ink" href="rep.htm">Point table <span class="chev"></span></a></p>
         </div>
       </aside>
@@ -118,8 +124,8 @@
 <section class="endcta">
   <div class="wrap">
     <div>
-      <h2>One call, and you will know where you stand</h2>
-      <p>If this office is not the right one for your matter, you will be told that too.</p>
+      <h2>If this office is not right for your matter</h2>
+      <p>You will be told that too, on the same call, rather than after you have paid for it.</p>
     </div>
     <div class="acts">
       <a class="btn btn-brass" href="tel:+15168738587">Call (516) 873-8587</a>

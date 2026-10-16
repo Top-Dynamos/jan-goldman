@@ -13,10 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jangoldman.com/rep.htm">
 <script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <style>
 .skip{position:absolute;left:-9999px;top:0;background:var(--brass);color:#14202B;padding:12px 18px;z-index:99;font-weight:700}
 .skip:focus{left:8px;top:8px}
+.areas-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:1100px){.areas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.areas-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -45,68 +51,70 @@
 <div class="phead">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="chev"></span><span>Point System</span></nav>
-    <h1 class="rv">New York State Violation Point System</h1>
-    <p class="lede rv rv-d1">The current point values, including the ones New York raised on February 16, 2026. Highlighted rows are the figures that changed or that did not exist on the old schedule.</p>
+    <h1 class="rv">What your charge is actually worth.</h1>
+    <p class="lede rv rv-d1">The current New York point values, including everything the state raised on February 16, 2026. Rows marked in red are the ones that changed, or that carried no points at all under the old schedule.</p>
     
-    <div class="facts rv countup3">
-      <div class="countup rv"><p class="k"><span data-to="11">0</span></p><p class="v">Points inside the counting window, and the DMV may suspend your license</p></div>
-      <div class="countup rv rv-d1"><p class="k"><span data-to="24" data-suffix=" months">0</span></p><p class="v">The lookback period, lengthened from 18 months in February 2026</p></div>
-      <div class="countup rv rv-d2"><p class="k"><span data-to="6">0</span></p><p class="v">Points in 18 months, and the Driver Responsibility Assessment is charged</p></div>
+    <div class="facts rv">
+      <div class="countup rv"><p class="k"><span data-to="11">0</span></p><p class="v">Points inside the window, and the DMV can take your license</p></div>
+      <div class="countup rv rv-d1"><p class="k"><span data-to="24" data-suffix=" months">0</span></p><p class="v">The lookback, lengthened from 18 months in February 2026</p></div>
+      <div class="countup rv rv-d2"><p class="k"><span data-to="6">0</span></p><p class="v">Points in 18 months, and the DMV assessment starts</p></div>
     </div>
   </div>
 </div>
-<section>
+<section class="edge-top">
   <div class="wrap">
     <div class="split">
       <div class="prose">
 
         <div class="callout rv">
-          <span class="lbl">Changed on February 16, 2026</span>
+          <span class="lbl">What changed on February 16, 2026</span>
           <p>New York raised the point value of several violations and lengthened the period over which points are counted. Any chart published before that date, including the one this page replaces, now understates what a conviction costs you.</p>
-          <p>The lookback moved from 18 months to 24 months. Alcohol and drug related incidents, aggravated unlicensed operation, work zone speeding, bridge strikes, leaving the scene of a personal injury accident, failure to exercise due care, facilitating aggravated unlicensed operation and speed contests all carry points that they did not carry before.</p>
+          <p>The lookback moved from 18 months to 24. Alcohol and drug related incidents, aggravated unlicensed operation, work zone speeding, bridge strikes, leaving the scene of a personal injury accident, failure to exercise due care, facilitating aggravated unlicensed operation and speed contests all now carry points that they did not carry before.</p>
         </div>
 
         <div class="block rv" id="how">
           <h2>How the total works</h2>
-          <p>Points attach to the date of the violation, not the date of the conviction, so a ticket you leave sitting still lands on the day you were stopped. They count toward your total for 24 months.</p>
+          <p>Points attach to the date of the violation, not the conviction, so a ticket left sitting still lands on the day you were stopped. They count toward your total for 24 months.</p>
           <ul class="ticks">
-            <li>Reach 11 points in 24 months and the DMV may suspend your license</li>
-            <li>Three speeding convictions inside the counting period can cost you your license on their own, whatever the point total says</li>
-            <li>Reach 6 points in 18 months and a separate Driver Responsibility Assessment is charged on top of every court fine</li>
+            <li>11 points in 24 months and the DMV may suspend your license</li>
+            <li>Three speeding convictions inside the counting period can cost you your license on their own, whatever the total says</li>
+            <li>6 points in 18 months and a separate Driver Responsibility Assessment is charged on top of every court fine</li>
           </ul>
-          <p>A plea that moves a charge to a lower point value, or to none, is often worth far more than the reduction in the fine, because the points are what reach your license and your premium.</p>
+          <div class="pull rv">
+            <p>A plea that drops the points is usually worth more than a plea that drops the fine.</p>
+          </div>
         </div>
 
         <div class="block rv" id="speeding">
           <h2>Speeding</h2>
-          <table class="ptable rv"><caption>Speed related violations</caption><thead><tr><th scope="col">Violation</th><th scope="col">Points</th></tr></thead><tbody><tr><td>Speeding, miles per hour not specified</td><td class="pv"><span class="bar" style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Speeding 1 to 10 over the posted limit</td><td class="pv"><span class="bar" style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Speeding 11 to 20 over the posted limit</td><td class="pv"><span class="bar" style="--p:4" aria-hidden="true"><i></i></span><span class="n">4</span></td></tr><tr><td>Speeding 21 to 30 over the posted limit</td><td class="pv"><span class="bar" style="--p:6" aria-hidden="true"><i></i></span><span class="n">6</span></td></tr><tr><td>Speeding 31 to 40 over the posted limit</td><td class="pv"><span class="bar" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr><tr><td>Speeding more than 40 over the posted limit</td><td class="pv"><span class="bar" style="--p:11" aria-hidden="true"><i></i></span><span class="n">11</span></td></tr><tr class="hi"><td>Speeding in a work zone</td><td class="pv"><span class="bar" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr></tbody></table>
+          <table class="ptable rv"><caption>Speed related violations</caption><thead><tr><th scope="col">Violation</th><th scope="col">Points</th></tr></thead><tbody><tr><td>Speeding, miles per hour not specified</td><td class="pv "><span class="bar " style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Speeding 1 to 10 over the posted limit</td><td class="pv "><span class="bar " style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Speeding 11 to 20 over the posted limit</td><td class="pv "><span class="bar " style="--p:4" aria-hidden="true"><i></i></span><span class="n">4</span></td></tr><tr><td>Speeding 21 to 30 over the posted limit</td><td class="pv mid"><span class="bar mid" style="--p:6" aria-hidden="true"><i></i></span><span class="n">6</span></td></tr><tr><td>Speeding 31 to 40 over the posted limit</td><td class="pv high"><span class="bar high" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr><tr><td>Speeding more than 40 over the posted limit</td><td class="pv high"><span class="bar high" style="--p:11" aria-hidden="true"><i></i></span><span class="n">11</span></td></tr><tr class="hi"><td>Speeding in a work zone</td><td class="pv high"><span class="bar high" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr></tbody></table>
           <p class="sub">A speedometer reading is evidence, not a verdict. How the reading was taken, and whether the device was in order, is a fair question in the right case.</p>
         </div>
 
         <div class="block rv" id="serious">
           <h2>Serious violations</h2>
-          <table class="ptable rv"><caption>Violations carrying 5 points or more</caption><thead><tr><th scope="col">Violation</th><th scope="col">Points</th></tr></thead><tbody><tr class="hi"><td>Alcohol or drug related driving incident</td><td class="pv"><span class="bar" style="--p:11" aria-hidden="true"><i></i></span><span class="n">11</span></td></tr><tr class="hi"><td>Aggravated unlicensed operation</td><td class="pv"><span class="bar" style="--p:11" aria-hidden="true"><i></i></span><span class="n">11</span></td></tr><tr class="hi"><td>Passing a stopped school bus</td><td class="pv"><span class="bar" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr><tr class="hi"><td>Over height vehicle, bridge strike</td><td class="pv"><span class="bar" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr><tr><td>Reckless driving</td><td class="pv"><span class="bar" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Leaving the scene of a personal injury accident</td><td class="pv"><span class="bar" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Failure to exercise due care</td><td class="pv"><span class="bar" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Facilitating aggravated unlicensed operation</td><td class="pv"><span class="bar" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Speed contests and races</td><td class="pv"><span class="bar" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr></tbody></table>
+          <table class="ptable rv"><caption>Violations carrying 5 points or more</caption><thead><tr><th scope="col">Violation</th><th scope="col">Points</th></tr></thead><tbody><tr class="hi"><td>Alcohol or drug related driving incident</td><td class="pv high"><span class="bar high" style="--p:11" aria-hidden="true"><i></i></span><span class="n">11</span></td></tr><tr class="hi"><td>Aggravated unlicensed operation</td><td class="pv high"><span class="bar high" style="--p:11" aria-hidden="true"><i></i></span><span class="n">11</span></td></tr><tr class="hi"><td>Passing a stopped school bus</td><td class="pv high"><span class="bar high" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr><tr class="hi"><td>Over height vehicle, bridge strike</td><td class="pv high"><span class="bar high" style="--p:8" aria-hidden="true"><i></i></span><span class="n">8</span></td></tr><tr><td>Reckless driving</td><td class="pv mid"><span class="bar mid" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Leaving the scene of a personal injury accident</td><td class="pv mid"><span class="bar mid" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Failure to exercise due care</td><td class="pv mid"><span class="bar mid" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Facilitating aggravated unlicensed operation</td><td class="pv mid"><span class="bar mid" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Speed contests and races</td><td class="pv mid"><span class="bar mid" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr></tbody></table>
         </div>
 
         <div class="block rv" id="other">
           <h2>Other moving violations</h2>
-          <table class="ptable rv"><caption>Remaining point values</caption><thead><tr><th scope="col">Violation</th><th scope="col">Points</th></tr></thead><tbody><tr class="hi"><td>Use of a mobile telephone or portable electronic device while driving</td><td class="pv"><span class="bar" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Railroad crossing violation</td><td class="pv"><span class="bar" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr><td>Following too closely, tailgating</td><td class="pv"><span class="bar" style="--p:4" aria-hidden="true"><i></i></span><span class="n">4</span></td></tr><tr><td>Inadequate brakes in an employer&#x27;s vehicle</td><td class="pv"><span class="bar" style="--p:4" aria-hidden="true"><i></i></span><span class="n">4</span></td></tr><tr><td>Improper passing, unsafe lane change, driving left of centre or the wrong way</td><td class="pv"><span class="bar" style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Violation involving a traffic signal, stop sign or yield sign</td><td class="pv"><span class="bar" style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Failing to yield the right of way</td><td class="pv"><span class="bar" style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Leaving the scene of an incident involving property damage or injury to a domestic animal</td><td class="pv"><span class="bar" style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Safety restraint violation involving a person under 16</td><td class="pv"><span class="bar" style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Inadequate brakes while driving an employer&#x27;s vehicle</td><td class="pv"><span class="bar" style="--p:2" aria-hidden="true"><i></i></span><span class="n">2</span></td></tr><tr><td>Any other moving violation</td><td class="pv"><span class="bar" style="--p:2" aria-hidden="true"><i></i></span><span class="n">2</span></td></tr></tbody></table>
+          <table class="ptable rv"><caption>Remaining point values</caption><thead><tr><th scope="col">Violation</th><th scope="col">Points</th></tr></thead><tbody><tr class="hi"><td>Use of a mobile telephone or portable electronic device while driving</td><td class="pv mid"><span class="bar mid" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr class="hi"><td>Railroad crossing violation</td><td class="pv mid"><span class="bar mid" style="--p:5" aria-hidden="true"><i></i></span><span class="n">5</span></td></tr><tr><td>Following too closely, tailgating</td><td class="pv "><span class="bar " style="--p:4" aria-hidden="true"><i></i></span><span class="n">4</span></td></tr><tr><td>Inadequate brakes in an employer&#x27;s vehicle</td><td class="pv "><span class="bar " style="--p:4" aria-hidden="true"><i></i></span><span class="n">4</span></td></tr><tr><td>Improper passing, unsafe lane change, driving left of centre or the wrong way</td><td class="pv "><span class="bar " style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Violation involving a traffic signal, stop sign or yield sign</td><td class="pv "><span class="bar " style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Failing to yield the right of way</td><td class="pv "><span class="bar " style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Leaving the scene of an incident involving property damage or injury to a domestic animal</td><td class="pv "><span class="bar " style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Safety restraint violation involving a person under 16</td><td class="pv "><span class="bar " style="--p:3" aria-hidden="true"><i></i></span><span class="n">3</span></td></tr><tr><td>Inadequate brakes while driving an employer&#x27;s vehicle</td><td class="pv "><span class="bar " style="--p:2" aria-hidden="true"><i></i></span><span class="n">2</span></td></tr><tr><td>Any other moving violation</td><td class="pv "><span class="bar " style="--p:2" aria-hidden="true"><i></i></span><span class="n">2</span></td></tr></tbody></table>
         </div>
 
         <div class="block rv" id="dra">
           <h2>The Driver Responsibility Assessment</h2>
-          <p>This is a Department of Motor Vehicles charge, separate from anything the court imposes. It is triggered by reaching six points within eighteen months, and by alcohol and drug related convictions and chemical test refusals in their own right.</p>
-          <p>It is billed annually for three years, and your license, permit or driving privilege is suspended if it goes unpaid. Because it arrives from the DMV rather than the court, it reaches people who believed the matter was finished months earlier.</p>
+          <p>This is a Department of Motor Vehicles charge, separate from anything the court imposes. Six points inside eighteen months triggers it, and so do alcohol and drug related convictions and chemical test refusals in their own right.</p>
+          <p>It is billed annually for three years, and your license, permit or driving privilege is suspended if it goes unpaid. Because it comes from the DMV rather than the court, it reaches people who believed the matter had finished months earlier.</p>
           <div class="callout rv">
-            <span class="lbl">The point</span>
-            <p>The fine on the ticket is rarely the real cost. The assessment, the premium and the risk to your license are, and all three are decided by the points rather than by the amount you pay at the window.</p>
+            <span class="lbl">The point of this page</span>
+            <p>The fine on the ticket is rarely the real cost. The assessment, the premium and the risk to your license are. All three are decided by the points, not by the amount you hand over at the window.</p>
           </div>
         </div>
 
         <div class="block rv" id="source">
           <h2>Where these figures come from</h2>
           <p>The point values and the 24 month lookback on this page are taken from the New York State Department of Motor Vehicles driver point system, and from the department's own notice of the values that became enforceable on February 16, 2026.</p>
-          <p class="sub">This page is general information about New York law. It is not legal advice about your case, and the charge written on your ticket may not carry the point value you expect. Check it before you pay anything.</p>
+          <p class="sub">This is general information about New York law. It is not legal advice about your case, and the charge written on your ticket may not carry the point value you expect. Check it before you pay anything.</p>
         </div>
 
       </div>
@@ -128,7 +136,7 @@
   <div class="wrap">
     <div>
       <h2>Read us the charge before you pay it</h2>
-      <p>The code on the ticket decides the points. It is a short call and it is worth making first.</p>
+      <p>The code printed on the ticket decides the points. It is a short call, and it is the one worth making first.</p>
     </div>
     <div class="acts">
       <a class="btn btn-brass" href="tel:+15168738587">Call (516) 873-8587</a>

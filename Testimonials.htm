@@ -13,10 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jangoldman.com/Testimonials.htm">
 <script>document.documentElement.className+=" js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <style>
 .skip{position:absolute;left:-9999px;top:0;background:var(--brass);color:#14202B;padding:12px 18px;z-index:99;font-weight:700}
 .skip:focus{left:8px;top:8px}
+.areas-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media (max-width:1100px){.areas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.areas-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -45,12 +51,12 @@
 <div class="phead">
   <div class="wrap">
     <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="chev"></span><span>Testimonials</span></nav>
-    <h1 class="rv">Testimonials</h1>
-    <p class="lede rv rv-d1">What people who have been through it have said afterwards. Published with their permission, and with the caution every reader deserves.</p>
+    <h1 class="rv">What people said afterwards.</h1>
+    <p class="lede rv rv-d1">Published with permission, and with the caution every reader of a page like this deserves.</p>
     
   </div>
 </div>
-<section>
+<section class="edge-top">
   <div class="wrap">
     <div class="split">
       <div class="prose">
@@ -59,17 +65,17 @@
             <q>Jan's the Man</q>
             <p class="by">Ferguson Jenkins, National Baseball Hall of Fame, class of 1991</p>
           </div>
-          <div class="callout" style="margin-top:28px">
+          <div class="callout rv" style="margin-top:28px">
             <span class="lbl">Please read this part</span>
             <p>Prior results do not guarantee a similar outcome. An endorsement describes one person's experience of one matter. It is not a prediction about yours, and no honest attorney will tell you otherwise.</p>
-            <p>Every case turns on its own charge, its own facts and its own court. The only way to know where you stand is to have someone read your papers.</p>
+            <p>Every case turns on its own charge, its own facts and its own court. The only way to know where you stand is to have somebody read your papers.</p>
           </div>
         </div>
 
         <div class="block rv">
           <h2>If this office has acted for you</h2>
           <p>Clients are welcome to send a few lines about how their matter was handled. Nothing is published without permission, nothing is published about a matter that is still live, and nothing is edited to say more than the writer said.</p>
-          <p>Write to the office at (516) 873-8587, or use the details on the contact page.</p>
+          <p>Telephone the office on (516) 873-8587, or use the details on the contact page.</p>
         </div>
       </div>
       <aside class="rail">
@@ -79,8 +85,8 @@
       <p>A call is quicker than a form, and you will know on that call whether this office can help you.</p>
     </div>
         <div class="railbox rv">
-          <h3>What Matters More</h3>
-          <p>A straight answer about your own charge is worth more than anything written on this page by somebody else.</p>
+          <h3>Worth More Than This Page</h3>
+          <p>A straight answer about your own charge beats anything somebody else wrote about theirs.</p>
           <p style="margin-top:14px"><a class="btn btn-ink" href="contact.htm">Contact the office <span class="chev"></span></a></p>
         </div>
       </aside>
