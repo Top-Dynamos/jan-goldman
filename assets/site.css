@@ -492,3 +492,102 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
 body,p,li,td,th,a,button,input{font-family:var(--sans)}
 h1,h2,h3,.facts .k,.gauge .big,q,.pull p,.step .dot,.callbox .big,.railbox.ink .num,.ghost,.area .tag{font-family:var(--serif)}
 .quote q{letter-spacing:-0.022em}
+
+/* ======================================================================
+   DESIGN SYSTEM  v3   radii, elevation, glass
+   Three elevation levels, all tinted with the navy rather than black, so a
+   raised surface reads as lit from above instead of cut out of the page.
+   ====================================================================== */
+:root{
+  --r-xs:8px; --r-sm:10px; --r-md:14px; --r-lg:18px; --r-pill:999px;
+  --e1:0 1px 2px rgba(10,23,36,.05), 0 4px 14px rgba(10,23,36,.06);
+  --e2:0 2px 4px rgba(10,23,36,.06), 0 14px 32px rgba(10,23,36,.11);
+  --e3:0 4px 10px rgba(10,23,36,.10), 0 26px 60px rgba(10,23,36,.18);
+  --e1-d:0 1px 2px rgba(0,0,0,.24), 0 6px 18px rgba(0,0,0,.26);
+  --e2-d:0 3px 8px rgba(0,0,0,.30), 0 18px 44px rgba(0,0,0,.36);
+  --glass-d:rgba(255,255,255,.055);
+  --glass-d-brd:rgba(255,255,255,.12);
+  --glass-l:rgba(255,255,255,.62);
+  --glass-l-brd:rgba(10,23,36,.08);
+  --t:240ms cubic-bezier(.22,1,.36,1);
+}
+
+/* ---------- radii, applied once, everywhere ---------- */
+.btn,.menu-btn{border-radius:var(--r-sm)}
+.fcard,.railbox,.callout,.cred,.quote-card,.infogrid .cell,.callbox,.cost-card,.area{border-radius:var(--r-md)}
+.gauge-wrap,.ptable .hi td:first-child{border-radius:var(--r-sm)}
+.step .dot{border-radius:var(--r-sm)}
+.bar,.bar i{border-radius:var(--r-pill)}
+.sticky-call{border-radius:0}
+.ptable .hi td:first-child{border-top-left-radius:var(--r-sm);border-bottom-left-radius:var(--r-sm)}
+.ptable .hi td:last-child{border-top-right-radius:var(--r-sm);border-bottom-right-radius:var(--r-sm)}
+
+/* ---------- elevation, level 1 and 2 ---------- */
+.fcard{box-shadow:var(--e1);transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
+.fcard:hover,.fcard:focus-within{transform:translateY(-5px);box-shadow:var(--e2)}
+.fcard.on-ink{box-shadow:var(--e1-d)}
+.fcard.on-ink:hover,.fcard.on-ink:focus-within{box-shadow:var(--e2-d)}
+.railbox,.cred,.quote-card,.infogrid .cell{box-shadow:var(--e1)}
+.railbox.ink,.callbox{box-shadow:var(--e1-d)}
+.btn-brass,.btn-ink{transition:transform var(--t),box-shadow var(--t),background var(--t),border-color var(--t)}
+.btn-brass:hover{box-shadow:var(--e2)}
+.btn-brass:active,.btn-ink:active,.fcard:active{transform:translateY(0)}
+
+/* ---------- glass, used sparingly and only where something sits behind ---------- */
+/* 0.93 not 0.74: the header scrolls over ivory sections, and at a lower
+   alpha the champagne subtitle fell to 3.85:1 against that backdrop.
+   The blur is what reads as glass, not the transparency. */
+header{background:rgba(17,31,47,.93);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px);box-shadow:var(--e3)}
+.callbox{background:var(--glass-d);border:1px solid var(--glass-d-brd);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+/* NOT glass. This panel sits on the ivory page, so a translucent surface
+   leaves white text on near white. It gets its depth from a solid gradient
+   and elevation instead. */
+.railbox.ink{background-color:var(--ink);background-image:linear-gradient(165deg,#16283A 0%,var(--ink) 72%);
+  border:1px solid rgba(255,255,255,.1)}
+.fcard.on-ink{background:var(--glass-d);border-color:var(--glass-d-brd);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+/* where blur is not supported the surface becomes opaque instead of washed out */
+@supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+  header{background:var(--ink-2)}
+  .callbox,.fcard.on-ink{background:#16283A}
+}
+
+/* ---------- ambient light, restrained ---------- */
+.hero::after{background:
+  radial-gradient(760px 520px at 14% 24%,rgba(194,153,79,.15) 0%,transparent 64%),
+  radial-gradient(620px 460px at 88% 78%,rgba(123,43,58,.16) 0%,transparent 66%)}
+.phead::after{background:
+  radial-gradient(640px 440px at 18% 38%,rgba(194,153,79,.13) 0%,transparent 64%),
+  radial-gradient(520px 380px at 92% 86%,rgba(123,43,58,.13) 0%,transparent 66%)}
+.cost{position:relative}
+.cost::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 600px at 78% 18%,rgba(123,43,58,.14) 0%,transparent 62%)}
+.cost .wrap{position:relative;z-index:1}
+
+/* ---------- contact cards become real cards rather than hairline cells ---------- */
+.infogrid{background:transparent;gap:20px}
+.infogrid .cell{border:1px solid var(--line)}
+
+/* ---------- the quote card earns level 2 ---------- */
+.quote-card{box-shadow:var(--e2)}
+
+/* ---------- focus, active and disabled states ---------- */
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:var(--r-xs)}
+.btn:focus-visible{box-shadow:var(--e2)}
+.btn[aria-disabled="true"],.btn:disabled{opacity:.45;pointer-events:none}
+
+/* ---------- touch: no hover, so the lift is replaced by a pressed state ---------- */
+@media (hover:none){
+  .fcard:hover,.fcard:focus-within{transform:none;box-shadow:var(--e1)}
+  .fcard.on-ink:hover{box-shadow:var(--e1-d)}
+  .fcard:active{transform:scale(.995);box-shadow:var(--e2)}
+  .btn-brass:active,.btn-ink:active{transform:scale(.985)}
+  /* one blur layer on a phone, not four */
+  .callbox,.fcard.on-ink{-webkit-backdrop-filter:none;backdrop-filter:none;background:#16283A}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fcard,.btn-brass,.btn-ink{transition:none}
+  .fcard:hover{transform:none}
+}
