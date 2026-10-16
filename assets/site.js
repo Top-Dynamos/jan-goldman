@@ -29,6 +29,10 @@
     tick();
   }
 
+  spines();
+  parallax();
+  cards();
+
   /* ---------- reveal on scroll ---------- */
   var targets = document.querySelectorAll('.rv');
   if (!targets.length) return;
@@ -85,6 +89,80 @@
       else if (readout) readout.textContent = target;
     };
     requestAnimationFrame(step);
+  }
+
+  /* ---------- the filling spine, and the step dots lighting as you pass ---------- */
+  function spines() {
+    var all = Array.prototype.slice.call(document.querySelectorAll('.spine'));
+    if (!all.length) return;
+    all.forEach(function (sp) {
+      if (!sp.querySelector('.fillbar')) {
+        var f = document.createElement('span');
+        f.className = 'fillbar';
+        sp.insertBefore(f, sp.firstChild);
+      }
+    });
+    if (reduce) {
+      all.forEach(function (sp) {
+        sp.querySelector('.fillbar').style.height = '100%';
+        sp.querySelectorAll('.step').forEach(function (s) { s.classList.add('lit'); });
+      });
+      return;
+    }
+    var frame = null;
+    var draw = function () {
+      frame = null;
+      var vh = window.innerHeight;
+      all.forEach(function (sp) {
+        var r = sp.getBoundingClientRect();
+        var line = vh * 0.55;                       // the reading line, a little above centre
+        var p = (line - r.top) / (r.height || 1);
+        p = Math.max(0, Math.min(1, p));
+        sp.querySelector('.fillbar').style.height = (p * 100) + '%';
+        sp.querySelectorAll('.step').forEach(function (step) {
+          var d = step.getBoundingClientRect();
+          step.classList.toggle('lit', d.top < line);
+        });
+      });
+    };
+    var onScroll = function () { if (frame === null) frame = requestAnimationFrame(draw); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    draw();
+  }
+
+  /* ---------- parallax, transform only, and never on a reduced motion setting ---------- */
+  function parallax() {
+    var els = Array.prototype.slice.call(document.querySelectorAll('.plx'));
+    if (!els.length || reduce) return;
+    var frame = null;
+    var draw = function () {
+      frame = null;
+      var vh = window.innerHeight;
+      els.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) return;
+        var depth = parseFloat(el.dataset.depth || '0.06');
+        var centre = r.top + r.height / 2 - vh / 2;
+        el.style.transform = 'translate3d(0,' + (-centre * depth).toFixed(2) + 'px,0)';
+      });
+    };
+    var onScroll = function () { if (frame === null) frame = requestAnimationFrame(draw); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    draw();
+  }
+
+  /* ---------- cards follow the pointer, and ignore it on touch ---------- */
+  function cards() {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover)').matches) return;
+    document.querySelectorAll('.fcard').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
   }
 
   /* ---------- number count up ---------- */

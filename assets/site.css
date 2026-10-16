@@ -1,17 +1,21 @@
 :root{
-  --ink:#0B1A28;
-  --ink-2:#132537;
+  --ink:#0A1724;
+  --ink-2:#111F2F;
   --ink-3:#1C3348;
   --brass:#C2994F;
   --brass-soft:#D9B977;
   --brass-ink:#7E6129;
+  --wine:#7B2B3A;        /* restrained burgundy, consequence and gravitas */
+  --wine-soft:#D98A96;   /* the same voice on a dark ground */
+  --risk:#7B2B3A;
+  --risk-soft:#D98A96;
   --paper:#FBFAF7;
-  --paper-2:#F2EFE8;
+  --paper-2:#F4F1EA;
   --body:#2B3845;
   --muted:#5A6878;
   --line:#DFD9CD;
-  --serif:"Iowan Old Style","Charter","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Fraunces","Iowan Old Style","Charter","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --wrap:1140px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -19,7 +23,7 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--body);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.14;margin:0;letter-spacing:-0.01em;text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.022em;text-wrap:balance;font-optical-sizing:auto}
 p{margin:0}
 .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
 .eyebrow .chev{margin:0 .55em 0 .3em;opacity:.7}
@@ -382,3 +386,109 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
   .bar i{transition:none}
   .btn-brass:hover,.btn-ink:hover{transform:none}
 }
+
+/* ======================================================================
+   SCROLL LAYER  v2
+   Colour roles, deliberately:
+     navy    authority and stability. The frame the reader sits inside.
+     brass   experience and worth. Action, and anything the reader should do.
+     paper   warmth, so the authority does not read as cold.
+     risk    consequence. Used only to describe what a conviction costs,
+             never on a button, because urgency belongs on the problem and
+             reassurance belongs on the remedy.
+   ====================================================================== */
+
+/* ---------- section edges, so dark and light bands meet deliberately ---------- */
+.edge-top{position:relative}
+.edge-top::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(194,153,79,.5),transparent)}
+
+/* ---------- sticky narrative column ---------- */
+.stick{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:68px;align-items:start}
+.stick .pin{position:sticky;top:120px}
+.stick .flow{display:flex;flex-direction:column;gap:22px}
+
+/* ---------- the filling spine ---------- */
+.spine{position:relative;padding-left:62px}
+.spine::before{content:"";position:absolute;left:21px;top:14px;bottom:14px;width:2px;background:var(--line)}
+.spine .fillbar{position:absolute;left:21px;top:14px;width:2px;height:0;
+  background:linear-gradient(180deg,var(--brass),var(--wine));transition:height .15s linear}
+.cost .spine::before{background:rgba(255,255,255,.14)}
+.step{position:relative;padding:0 0 46px}
+.step:last-child{padding-bottom:0}
+.step .dot{position:absolute;left:-62px;top:0;width:44px;height:44px;border:1px solid var(--line);
+  background:var(--paper);display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:15px;color:var(--brass-ink);transition:border-color .4s ease,background .4s ease,color .4s ease}
+.cost .step .dot{background:var(--ink);border-color:rgba(255,255,255,.2);color:var(--brass-soft)}
+.step.lit .dot{border-color:var(--brass);background:var(--brass);color:#14202B}
+.step h3{font-size:clamp(1.15rem,1.1vw + .85rem,1.45rem);color:var(--ink);margin:6px 0 10px}
+.cost .step h3{color:#fff}
+.step p{color:var(--muted);line-height:1.68;margin:0 0 12px}
+.cost .step p{color:#A9B8C6}
+
+/* ---------- fancy cards ---------- */
+.fcard{position:relative;background:var(--paper);border:1px solid var(--line);padding:30px 28px 32px;
+  overflow:hidden;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease,border-color .4s ease}
+.fcard::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(194,153,79,.14),transparent 62%);
+  transition:opacity .4s ease}
+.fcard:hover,.fcard:focus-within{transform:translateY(-4px);border-color:rgba(194,153,79,.5);box-shadow:0 18px 40px rgba(11,26,40,.1)}
+.fcard:hover::after,.fcard:focus-within::after{opacity:1}
+.fcard.on-ink{background:rgba(255,255,255,.028);border-color:rgba(255,255,255,.16)}
+.fcard.on-ink:hover{border-color:rgba(194,153,79,.5);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.fcard h3{font-size:19.5px;color:var(--ink);margin:0 0 10px}
+.fcard.on-ink h3{color:#fff}
+.fcard p{font-size:15.5px;color:var(--muted);line-height:1.64;margin:0}
+.fcard.on-ink p{color:#A9B8C6}
+.fcard .rule{display:block;height:2px;width:26px;background:var(--brass);margin:0 0 18px;
+  transition:width .45s cubic-bezier(.22,1,.36,1)}
+.fcard:hover .rule{width:52px}
+
+/* ---------- risk colouring on the point bars ---------- */
+.bar i{background:linear-gradient(90deg,var(--brass-ink),var(--brass))}
+.bar.mid i{background:linear-gradient(90deg,var(--brass),#B98A4C)}
+.bar.high i{background:linear-gradient(90deg,#B07A46,var(--wine))}
+.pv.high .n{color:var(--risk)}
+.ptable .hi td:first-child{box-shadow:inset 3px 0 0 var(--risk)}
+
+/* ---------- gauge danger zone ---------- */
+.gauge .zone{stroke:var(--risk);opacity:.5}
+
+/* ---------- parallax, transform only so phones stay smooth ---------- */
+.plx{will-change:transform}
+
+/* ---------- pull quote ---------- */
+.pull{border-left:2px solid var(--brass);padding:4px 0 4px 22px;margin:26px 0}
+.pull p{font-family:var(--serif);font-size:clamp(1.15rem,1.3vw + .8rem,1.5rem);color:var(--ink);line-height:1.38;margin:0}
+.cost .pull p,.contact .pull p{color:#fff}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .stick{grid-template-columns:1fr;gap:34px}
+  .stick .pin{position:static}
+}
+@media (max-width:700px){
+  .spine{padding-left:50px}
+  .spine::before,.spine .fillbar{left:17px}
+  .step .dot{left:-50px;width:36px;height:36px;font-size:13.5px}
+  .step{padding-bottom:36px}
+  .fcard{padding:26px 22px 28px}
+  /* hover does not exist on a phone, so the card earns its lift on entry instead */
+  .fcard:hover{transform:none;box-shadow:none;border-color:var(--line)}
+  .fcard.on-ink:hover{border-color:rgba(255,255,255,.16);box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .spine .fillbar,.step .dot,.fcard,.fcard .rule{transition:none}
+  .plx{transform:none!important}
+}
+
+/* ---------- editorial type, now that a real display face is loading ---------- */
+.hero h1{font-weight:600;letter-spacing:-0.03em;line-height:1.03;font-size:clamp(2.3rem,5.4vw + .4rem,4.6rem)}
+.phead h1{font-weight:600;letter-spacing:-0.028em;line-height:1.05;font-size:clamp(2rem,4.2vw + .5rem,3.6rem)}
+.sec-head h2,.att h2,.contact h2,.endcta h2{font-weight:600;letter-spacing:-0.025em;line-height:1.08}
+.eyebrow,.util .adv,.fmeta .adv,.dl .t,.infogrid .cell .t,.railbox h3,.cred h3,.ptable caption,.callout .lbl{font-family:var(--sans)}
+.facts .k,.gauge .big,.quote q,.quote-card q,.pull p,.step .dot,.railbox.ink .num,.callbox .big{font-family:var(--serif)}
+/* a display face at small sizes reads worse than the sans, so keep it off body copy */
+body,p,li,td,th,a,button,input{font-family:var(--sans)}
+h1,h2,h3,.facts .k,.gauge .big,q,.pull p,.step .dot,.callbox .big,.railbox.ink .num,.ghost,.area .tag{font-family:var(--serif)}
+.quote q{letter-spacing:-0.022em}
